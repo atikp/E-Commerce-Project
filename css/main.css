@@ -1,0 +1,214 @@
+@import url("item.css");
+@import url('shop.css');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  box-sizing: border-box;
+}
+body {
+  color: #000;
+  font-family: 'Nunito Sans', sans-serif;
+  
+}
+.wrapper{
+  margin: 3rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+                                              /* NAVBAR */
+.nav {
+  position: relative;
+  display: flex;
+  margin:2rem 0;
+  align-items: center;
+
+
+}
+.nav .bars{
+  
+  display: flex;
+  flex-direction: column;
+  height:1.5rem;
+  list-style: none;
+  justify-content: center;
+  margin-top: -5px;
+}
+.nav .bars .bar {
+  border-bottom:2px solid black;
+  width:30px;
+  height:2rem;
+
+
+}
+nav ul{
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  align-items: center;
+  font-weight: 700;
+ 
+}
+nav ul li a{
+  margin: 0 2rem;
+  text-decoration: none;
+  color:rgba(34,35,43,0.4);
+}
+.active{
+  color:#00C98D;
+}
+li a:hover{
+   color:#000;
+  ;
+}
+
+.nav .cart{
+  display: flex;
+  margin-left: auto;
+  justify-content: space-evenly;
+}
+
+.nav .cart a {
+  margin: .1rem 2rem;
+  font-weight: 700;
+}
+
+.search {
+  display: flex;
+  min-width: 100%;
+
+}
+.search .searchBar, .searchBar form{
+  display: flex;
+  min-width: 100%;
+  justify-content: space-between;
+
+}
+.search #searchQuery{
+
+  background-image: url("../img/Search.png");
+  background-size:35px;
+  background-repeat: no-repeat;
+  width: 74%;
+  border:none;
+  border-bottom: 3px solid  rgba(151, 151, 151, 0.4);;
+  padding: .5rem;
+  font-size: 1.5rem;
+
+}
+.search #searchQuery:focus{
+background-image: none;
+outline: none;
+
+
+}
+.search #sort {
+  width: 24%;
+  border:none;
+  border-bottom: 3px solid rgba(151, 151, 151, 0.4);;
+}
+
+.mainDisplay{
+  position: relative;
+  min-width: 100%;
+  
+}
+
+.mainDisplay .carousel {
+  position: relative;
+  margin-top: 3rem;
+  
+ 
+
+
+}
+
+                                                          /* main display  */
+.mainDisplay .carousel .previous{
+  filter:drop-shadow(0px 0px 10px rgba(0,0,0,.9));
+  background:url('../img/ArrowLeft.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #00C98D;
+  height:4rem;
+  width:2rem;
+  position: absolute;
+  top:45%;
+  left:2%;
+  border: none;
+
+}
+.mainDisplay .carousel .next{
+  filter:drop-shadow(0px 0px 10px rgba(0,0,0,.9));
+  background:url('../img/ArrowRight.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #00C98D;
+  height:4rem;
+  width:2rem;
+  position: absolute;
+  top:45%;
+  right:2%;
+  border: none;
+
+}
+.mainDisplay .carousel .carouselText{
+  position: absolute;
+  color: #fff;
+  left:5%;
+  top:5%;
+  
+}
+.mainDisplay .carousel .carouselText h1{
+  filter:drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.mainDisplay .carousel .carouselText h3{
+  filter:drop-shadow(0px 0px 10px rgba(0,0,0,.9));
+  font-weight: 300;
+  font-size: 2rem;
+  border-bottom: 3px solid #fff;
+  display: inline;
+}
+
+.mainDisplay .carousel .imgWrap img{
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: 0 100%;
+}
+
+                                                       
+                                                                /* footer  */
+footer {
+  display: flex;
+  margin: 3rem 0;
+  border-top: 2px solid #1b1b1b5b;
+  justify-content: space-around;
+  
+  
+}
+footer ul {
+  display: flex;
+  list-style: none;
+  margin: 3rem 0;
+  align-items: center;
+  
+  
+}
+footer li a{
+  text-decoration: none;
+  font-weight: 700;
+  color: #000;
+  margin:2rem;
+}

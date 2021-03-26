@@ -1,0 +1,196 @@
+
+.itemPage {
+  display: flex;
+  margin: 5rem auto;
+  width: 80vw;
+  height:100vh;
+
+}
+                                                  /* image display  */
+.imageDisplay {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin:0 2rem;
+  width: 60%;
+  object-fit: contain;
+  
+
+}
+.imageDisplay .mainImg {
+  position: relative;
+  aspect-ratio: 100/50;
+  min-height:50vh;
+  overflow: hidden;
+
+  
+}
+.imageDisplay .mainImg img{
+  position: absolute;
+  width:100%;
+  min-height:50vh;
+  object-fit: contain;
+  bottom:0;
+}
+.imageDisplay .thumbnails {
+  max-width: 50vw;
+}
+.imageDisplay .thumbnails .thumbImages {
+  position: relative;
+  display: flex;
+  list-style: none;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.imageDisplay .thumbnails .thumbImages li {
+  margin: 1rem;
+}
+.imageDisplay .thumbnails .thumbImages li img{
+  max-width: 100px;
+}
+                                                                    /* item options  */
+.itemOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:50vh;
+  width:30%;
+  margin:0;
+} 
+.itemOptions h2{
+  font-weight: 700;
+}                      
+.itemOptions p{
+  font-weight: 200;
+  font-size: 1rem;
+}
+.itemOptions p span {
+  color:red;
+}
+.itemOptions p.itemPrice{
+  font-weight: 400;
+}
+
+.itemOptions .colors .colorList{
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+.itemOptions .colorList li{
+  height:3vw;
+  width:3vw;
+  border:2px solid black;
+  border-radius: 50%;
+  margin: 1rem;
+}
+.itemOptions .details form button{
+  background-color: #000;
+  color:#fff;
+  font-weight: 200;
+  border: none;
+  width:100%;
+  padding: 1rem .5rem;
+}
+.itemOptions .details {
+  justify-self: flex-end;
+ 
+}
+.itemOptions .collapse {
+  display: flex;
+  border: 1px solid #000;
+  padding :1rem 0;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+.itemOptions .collapse h3{
+  display: flex;
+  margin-left: auto;
+  margin-right: -2rem;
+}
+.itemOptions .collapse p.collapsible{
+  display: flex;
+  height:1.5rem;
+  width: 1.5rem;
+  background: url("../img/Path.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+.itemOptions .detailsList{
+  position: absolute;
+  margin: 0 auto;
+  list-style-type:none;
+  max-width:20%;
+  /* opacity: 0; */
+
+}
+.itemOptions .detailsList .open {
+  opacity: 1;
+}
+.itemOptions .detailsList>li {
+  position: relative;
+  text-indent: 15px;
+  margin:1rem;
+}
+.itemOptions .detailsList li::before{
+  content: "-";
+  text-indent: -15px;
+  position: absolute;
+}
+
+
+
+.colorList #blue{
+  background-color: #1E0760;
+}
+.colorList  #skyBlue{
+
+}
+.colorList #ivory{
+
+}
+.colorList #salmon {
+
+}
+.colorList #turquoise {
+
+}
+.colorList #purple {
+
+}
+.colorList #tan {
+
+}
+.colorList #violet {
+
+}
+.colorList #lime {
+
+}
+.colorList #yellow{
+
+}
+.colorList .colorList #grey{
+
+}
+.colorList #magenta{
+
+}
+.colorList #red{
+
+}
+.colorList #maroon{
+
+}
+.colorList #black {
+
+}
+.colorList #azure{
+
+}
+.colorList #orchid{
+
+}

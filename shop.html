@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>SOFAS</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <section class="nav">
+        <ul class="bars">
+          <li class="bar"></li>
+          <li class="bar"></li>
+          <li class="bar"></li>
+        </ul>
+        <nav>
+          <ul>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a class="active" href="#">SHOP</a></li>
+            <li><a href="#">MAGAZINE</a></li>
+          </ul>
+        </nav>
+        <div class="cart">
+          <div class="shoppingCart">
+            <img src="./img/Cart Button.png" alt="shopping Cart Image" />
+          </div>
+          <a class="login">LOGIN</a>
+        </div>
+      </section>
+      <main>
+        <div class="search">
+          <div class="searchBar">
+            <form action="submit">
+              <input type="text" name="searchQuery" id="searchQuery" />
+              <select name="sort" id="sort">
+                <option value="default">Best Match</option>
+              </select>
+            </form>
+          </div>
+        </div>
+        <div class="shopDisplay">
+          <div class="filterList">
+            <h3>Filter by</h3>
+            <form action="submit">
+              <fieldset class="collections">
+                <div class="fieldHeader" id="collections">
+                  <p>Collection</p>
+                  <p class="collapsible open"></p>
+                </div>
+                <!-- <label for="Blue"
+                  ><input type="checkbox" id="blue" name="blue" /> Blue
+                </label>
+                <label for="Blue"
+                  ><input type="checkbox" id="blue" name="blue" /> Blue
+                </label>
+                <label for="Purple"
+                  ><input type="checkbox" id="purple" name="purple" />
+                  Purple</label
+                >
+                <label for="red"
+                  ><input type="checkbox" id="red" name="red" /> Red</label
+                > -->
+              </fieldset>
+
+              <fieldset class="colors">
+                <div class="fieldHeader" id="colors">
+                  <p>Color</p>
+                  <p class="collapsible open"></p>
+                </div>
+                <!-- <label for="Blue"
+                  ><input type="checkbox" id="blue" name="blue" /> Blue
+                </label>
+                <label for="Blue"
+                  ><input type="checkbox" id="blue" name="blue" /> Blue
+                </label>
+                <label for="Purple"
+                  ><input type="checkbox" id="purple" name="purple" />
+                  Purple</label
+                >
+                <label for="red"
+                  ><input type="checkbox" id="red" name="red" /> Red</label
+                > -->
+              </fieldset>
+
+              <fieldset class="materials">
+                <div class="fieldHeader" id="materials">
+                  <p>Materials</p>
+                  <p class="collapsible open"></p>
+                </div>
+                <!-- <label for="Blue"
+                  ><input type="checkbox" id="blue" name="blue" /> Blue
+                </label>
+                <label for="Blue"
+                  ><input type="checkbox" id="blue" name="blue" /> Blue
+                </label>
+                <label for="Purple"
+                  ><input type="checkbox" id="purple" name="purple" />
+                  Purple</label
+                >
+                <label for="red"
+                  ><input type="checkbox" id="red" name="red" /> Red</label
+                > -->
+              </fieldset>
+              <div class="priceRangeSlider">
+                <label for="priceRange">PriceRange</label>
+                <input
+                  type="range"
+                  name="PriceRange-min"
+                  id="priceRange-min"
+                  min="0"
+                  max="1000"
+                  value="0"
+                />
+                <input
+                  type="range"
+                  name="PriceRange-max"
+                  id="priceRange-max"
+                  min="0"
+                  max="1000"
+                  value="1000"
+                />
+
+                <div class="slider">
+                  <div class="track"></div>
+                  <div class="range"></div>
+                  <div class="thumb left"><p class="thumbLeftValue">value</p></div>
+
+                  <div class="thumb right"><p class="thumbRightValue">value</p></div>
+                </div>
+                
+              </div>
+              <div class="applyFilters">
+                <button type="submit">Apply Filters</button>
+              </div>
+            </form>
+          </div>
+          <div class="displayGridWrapper">
+            <div class="displayGrid">
+              <ul class="gridItems">
+                <li>
+                  <div>
+                    <div class="shopImgWrap">
+                      <img
+                        src="./img/productImages/sofa.png"
+                        alt="furniture_image"
+                      />
+                    </div>
+                    <div class="productDetails">
+                      <div class="productName">
+                        <h3>Name</h3>
+                        <p>type</p>
+                      </div>
+                      <div class="cartCta">
+                        <h3>price</h3>
+                        <img
+                          src="./img/Add to Cart Button.png"
+                          alt="addToCart"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="pagination">
+              <ul class="paginationItems">
+                <li class="pageNumber active">1</li>
+                <li class="pageNumber">2</li>
+                <li class="pageNumber">3</li>
+                <li class="pageNumber">4</li>
+                <li class="pageNumber">5</li>
+                <li class="pageNumber">6</li>
+                <li class="pageNumber">7</li>
+                <li class="pageNumber">8</li>
+                <li class="pageNumber">9</li>
+                <li class="pageNumber">10</li>
+                <li class="more">></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <ul class="footerLinks">
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">HOW CAN WE HELP</a></li>
+          <li><a href="#">SHOP BY ROOM</a></li>
+          <li><a href="#">SHOP BY STYLE</a></li>
+        </ul>
+        <ul class="social">
+          <li>
+            <a href="#"
+              ><img src="./img/instagram.png" alt="instagram link"
+            /></a>
+          </li>
+          <li>
+            <a href="#"><img src="./img/facebook.png" alt="facebook link" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="./img/twitter.png" alt="twitter link" /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <script src="./js/products.js"></script>
+    <script src="./js/shop.js"></script>
+    
+  </body>
+</html>

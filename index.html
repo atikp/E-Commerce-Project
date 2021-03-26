@@ -1,13 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/main.css">
     <title>SOFAS</title>
-</head>
-<body>
-    <script src="./js/item.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+    <section class="nav">
+        <ul class="bars">
+          <li class="bar"></li>
+          <li class="bar"></li>
+          <li class="bar"></li>
+        </ul>
+        <nav>
+          <ul>
+            <li><a class="active" href="#">HOME</a></li>
+            <li><a href="./shop.html">SHOP</a></li>
+            <li><a href="#">MAGAZINE</a></li>
+          </ul>
+        </nav>
+        <div class="cart">
+          <div class="shoppingCart">
+            <img src="./img/Cart Button.png" alt="shopping Cart Image" />
+          </div>
+          <a class="login">LOGIN</a>
+        </div>
+    </section>
+    <main>
+        <div class="search">
+          <div class="searchBar">
+            <form action="submit">
+
+              <input type="text" name="searchQuery" id="searchQuery" placeholder=""/>
+              <select name="sort" id="sort">
+                <option value="default">Best Match</option>
+              </select>
+            </form>
+          </div>
+        </div>
+        <div class="mainDisplay">
+
+          <div class="carousel">
+            <div class="carouselText">
+              <h1>CREATE YOUR CALM</h1>
+              <h3>Relax right Here</h3>
+            </div>
+            <div class="imgWrap">
+              <button class="previous"></button>
+              <img src="./img/mainPageCarousel/bed.jpg" alt="bedroom image">
+              <button class="next"></button>
+            </div>
+              
+          </div>
+        </div>
+    </main>
+    <footer>
+        <ul class="footerLinks">
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">HOW CAN WE HELP</a></li>
+          <li><a href="#">SHOP BY ROOM</a></li>
+          <li><a href="#">SHOP BY STYLE</a></li>
+        </ul>
+        <ul class="social">
+          <li><a href="#"><img src="./img/instagram.png" alt="instagram link"></a></li>
+          <li><a href="#"><img src="./img/facebook.png" alt="facebook link"></a></li>
+          <li><a href="#"><img src="./img/twitter.png" alt="twitter link"></a></li>
+        </ul>
+    </footer>
+  </div>
     <script src="./js/products.js"></script>
-    <script type="module" src="./js/main.js"></script>
-</body>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
