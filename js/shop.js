@@ -189,6 +189,8 @@ filterApplyBtn.addEventListener("click", (event) => {
   renderFilteredProducts(selectedFilters);
   console.log(selectedFilters)
 
+
+  goToItem();
 });
 
                                                             //initialization
@@ -197,6 +199,10 @@ const init = () => {
   setFilterHtml();
   renderProducts(PRODUCTS);
   setPriceRange(allFilters);
+
+
+
+  
 };
 
 init();
@@ -245,21 +251,41 @@ setRightValue();
 inputLeft.addEventListener("input", setLeftValue);
 inputRight.addEventListener("input", setRightValue);
 
-
-const anchors = [...document.querySelectorAll('.gridItems li a')];
-for (const anchor of anchors){
-  anchor.addEventListener("click" , ()=>{
-    const productName = anchor.querySelector('.productName h3').innerHTML;
-    console.log(productName);
-    for(let i=0;i<PRODUCTS.length;i++){
-      if(PRODUCTS[i].name === productName){
-        productClicked = JSON.stringify(PRODUCTS[i]);
-        sessionStorage.setItem('clickedItem', productClicked);
+const goToItem = () =>{
+  const anchors = [...document.querySelectorAll('.gridItems li a')];
+  if (anchors.length){console.log('anchors')}
+  for (const anchor of anchors){
+    anchor.addEventListener("click" , ()=>{
+      const productName = anchor.querySelector('.productName h3').innerHTML;
+      console.log(productName);
+      for(let i=0;i<PRODUCTS.length;i++){
+        if(PRODUCTS[i].name === productName){
+          productClicked = JSON.stringify(PRODUCTS[i]);
+          sessionStorage.setItem('clickedItem', productClicked);
+        }
       }
-    }
-    window.location.assign('./item.html');
-  })
+      window.location.assign('./item.html');
+    })
+  }
+    
 }
+
+goToItem();
+// const anchors = [...document.querySelectorAll('.gridItems li a')];
+// if (anchors.length){console.log('anchors')}
+// for (const anchor of anchors){
+//   anchor.addEventListener("click" , ()=>{
+//     const productName = anchor.querySelector('.productName h3').innerHTML;
+//     console.log(productName);
+//     for(let i=0;i<PRODUCTS.length;i++){
+//       if(PRODUCTS[i].name === productName){
+//         productClicked = JSON.stringify(PRODUCTS[i]);
+//         sessionStorage.setItem('clickedItem', productClicked);
+//       }
+//     }
+//     window.location.assign('./item.html');
+//   })
+// }
   
  
 

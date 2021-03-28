@@ -33,10 +33,6 @@ const BuildItem = () =>{
         <div class="colors">
 
           <ul class="colorList">
-            <li class="color" id="${getProduct.colors[0]}"></li>
-            <li class="color" id="${getProduct.colors[1]}"></li>
-            <li class="color" id="${getProduct.colors[2]}"></li>
-            <li class="color" id="${getProduct.colors[3]}"></li>
           </ul>
 
         </div>
@@ -84,4 +80,48 @@ const BuildItem = () =>{
   productWrap.appendChild(createItem);
 }
 
+
+const addColors = () =>{
+  const colorList = document.querySelector('.colorList');
+  const allColors = getProduct.colors;
+  allColors.forEach(color =>{
+    colorListItem = document.createElement('li');
+    colorListItem.classList.add('color');
+    colorListItem.id = color;
+
+    colorList.appendChild(colorListItem);
+  })
+}
+
+
+const addToBasket = () =>{
+  const basketButton = document.querySelector('.form button');
+  let basket = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+console.log(basket);
+  basketButton.addEventListener('click', (event)=>{
+    event.preventDefault();
+
+    if (basket === [null]){
+      basket= [];
+      basket.push(getProduct);
+    }
+    basket.push(getProduct);
+    console.log("b",basket);
+    basketString = JSON.stringify(basket);
+  console.log("C",basketString);
+  sessionStorage.setItem('cartItems', basketString);
+  document.querySelectorAll('.nav .cart .shoppingCart')[0].classList.add('active');
+  displayCart();
+  })
+  if(basket.length>0){
+    document.querySelectorAll('.nav .cart .shoppingCart')[0].classList.add('active');
+  }
+}
+
+
+
 BuildItem();
+addColors();
+addToBasket();
+
+

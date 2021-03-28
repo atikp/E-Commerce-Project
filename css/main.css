@@ -80,6 +80,23 @@ li a:hover{
   margin: .1rem 2rem;
   font-weight: 700;
 }
+.nav .cart .shoppingCart {
+  position: relative;
+}
+.nav .cart .shoppingCart.active:after {
+  content:attr(data-value);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+  position: absolute;
+  top:-10px;
+  right:-10px;
+  width: 20px;
+  height:20px;
+  border-radius: 50%;
+  background-color:#00C98D;
+}
 
 .search {
   display: flex;

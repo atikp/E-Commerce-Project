@@ -49,3 +49,4 @@ nextBtn.addEventListener("click",()=>{
   
 })
 
+displayCart();

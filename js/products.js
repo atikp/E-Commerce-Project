@@ -304,3 +304,10 @@ const MAIN = [
   "./img/mainPageCarousel/chair.jpg",
   "./img/mainPageCarousel/bed.jpg",
 ];
+
+const displayCart =() =>{
+  const cartExists = JSON.parse(sessionStorage.getItem('cartItems'));
+  const cartAfter = document.querySelectorAll('.nav .cart .shoppingCart')[0];
+  cartAfter.setAttribute('data-value', cartExists.length);
+}
+displayCart();

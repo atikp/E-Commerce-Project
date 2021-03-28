@@ -1,6 +1,6 @@
 const searchBar = document.querySelector('.searchBar form');
 const searchBarInput = document.querySelector('.searchBar form input');
-// let searchQuery = JSON.parse(sessionStorage.getItem('searchResult'));
+let searchQuery = JSON.parse(sessionStorage.getItem('searchResult')) || [];
 let queryResult =[]
 
 
@@ -62,10 +62,16 @@ searchBar.addEventListener("keyup", (event)=>{
 })
 
 
-if(searchQuery !== 0) {
-  document.querySelector('.gridItems').innerHTML ='';
-  renderProducts(searchQuery);
+if(searchQuery.length !==0 && window.location.pathname.includes('shop.html')) {
+  setTimeout(() => {
+    document.querySelector('.gridItems').innerHTML ='';
+    renderProducts(searchQuery);
+    sessionStorage.removeItem('searchResult');
+  }, 200);
+
+  // renderProducts(searchQuery);
   console.log(searchQuery);
-  sessionStorage.removeItem('searchResult');
+  
 
 }
+displayCart();
