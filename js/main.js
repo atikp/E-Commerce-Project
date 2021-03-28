@@ -14,7 +14,7 @@ const carousel =() =>{
     }
     
     i++
-    console.log(i)
+    // console.log(i)
   }, 3000);
 }
 carousel();
@@ -48,3 +48,4 @@ nextBtn.addEventListener("click",()=>{
   }
   
 })
+

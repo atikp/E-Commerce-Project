@@ -1,5 +1,17 @@
 const fieldTohide = document.querySelectorAll(".fieldHeader");
 const filterApplyBtn = document.querySelector(".applyFilters>button");
+let priceRangeInput = [...document.querySelectorAll(".priceRangeSlider input")];
+const inputLeft = document.getElementById("priceRange-min");
+const inputRight = document.getElementById("priceRange-max");
+const thumbLeft = document.querySelector(".slider >.thumb.left");
+const thumbRight = document.querySelector(".slider >.thumb.right");
+const range = document.querySelector(".slider> .range");
+
+let thumbLeftValue;
+let thumbRightValue;
+let minprice;
+let maxprice;
+
 
 fieldTohide.forEach((field) => {
   field.addEventListener("click", () => {
@@ -16,8 +28,10 @@ fieldTohide.forEach((field) => {
     });
   });
 });
+
+
 // set filters
-//filters
+
 
 const setAllFilters = () => {
   const prices = [];
@@ -53,12 +67,44 @@ const allFilters = setAllFilters();
 let selectedFilters = setInitialFilters();
 
 const createAProductEl = (product) => {
+
+  const listItemWrap = document.createElement('div');
+
+    const listItem = document.createElement('li');
+    listItem.innerHTML =`<a>
+    <div class="shopImgWrap">
+      <img
+        src="${product.img}"
+        alt="${product.type}_Image"
+      />
+    </div>
+    <div class="productDetails">
+      <div class="productName">
+        <h3>${product.name}</h3>
+        <p>${product.type}</p>
+      </div>
+      <div class="cartCta">
+        <h3>$${product.price}</h3>
+        <img
+          src="./img/Add to Cart Button.png"
+          alt="addToCart"
+        />
+      </div>
+    </div>
+  </a>
+    
+    `;
+    listItemWrap.appendChild(listItem);
+    return listItem;
+
   // @TODO: create actual el structure
 };
 
 const renderProducts = (products) => {
   products.forEach((product) => {
     const productEl = createAProductEl(product);
+    const gridItems = document.querySelector('.gridItems');
+    gridItems.appendChild(productEl);
     // @TODO: append productEl to DOM
   });
 };
@@ -103,15 +149,27 @@ const renderFilteredProducts = (filters) => {
       product.type,
       ...product.materials,
     ];
-
+    // console.log(combinedAttributes)
     combinedFilters.forEach((filter) => {
-      if (combinedAttributes.includes(filter)) {
+      if (combinedAttributes.includes(filter) && product.price >= minPrice && product.price <= maxPrice) {
         filteredProducts.push(product);
       }
     });
   });
-  console.log(filteredProducts)
-  renderProducts(filteredProducts);
+  // console.log(filteredProducts)
+
+  
+  if (filteredProducts.length != 0){
+    const uniqueFilteredArray = Array.from(new Set(filteredProducts))
+    document.querySelector('.gridItems').innerHTML ='';
+    renderProducts(uniqueFilteredArray);
+  } else{
+    document.querySelector('.gridItems').innerHTML ='';
+    renderProducts(PRODUCTS);
+  }
+    
+  
+  
 };
 
 filterApplyBtn.addEventListener("click", (event) => {
@@ -129,7 +187,11 @@ filterApplyBtn.addEventListener("click", (event) => {
   });
 
   renderFilteredProducts(selectedFilters);
+  console.log(selectedFilters)
+
 });
+
+                                                            //initialization
 
 const init = () => {
   setFilterHtml();
@@ -139,79 +201,74 @@ const init = () => {
 
 init();
 
-// PRODUCTS.forEach((product) => {
-//   prices.push(product.price);
-//   prices.sort();
-
-//   if (!collection.includes(product.type)) {
-//     collection.push(product.type);
-//   }
-
-//   product.materials.forEach((material) => {
-//     if (!materials.includes(material)) {
-//       materials.push(material);
-//     }
-//   });
-//   product.colors.forEach((color) => {
-//     if (!colors.includes(color)) {
-//       colors.push(color);
-//     }
-//   });
-// });
 
 // range slider
 
-// let priceRangeInput = [...document.querySelectorAll(".priceRangeSlider input")];
-// priceRangeInput.forEach((input) => {
-//   input.min = Math.min(...prices);
-//   input.max = Math.max(...prices);
-// });
 
-// const inputLeft = document.getElementById("priceRange-min");
-// const inputRight = document.getElementById("priceRange-max");
-// const thumbLeft = document.querySelector(".slider >.thumb.left");
-// const thumbRight = document.querySelector(".slider >.thumb.right");
-// const range = document.querySelector(".slider> .range");
-// let thumbLeftValue;
-// let thumbRightValue;
 
-// const setLeftValue = () => {
-//   const _this = inputLeft;
-//   min = parseInt(_this.min);
-//   max = parseInt(_this.max);
+const setLeftValue = () => {
+  const _this = inputLeft;
+  //TODO change _this to inputLeft / inputRight respectively
+  min = parseInt(_this.min);
+  max = parseInt(_this.max);
 
-//   _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
-//   let percent = ((_this.value - min) / (max - min)) * 100;
+  _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+  let percent = ((_this.value - min) / (max - min)) * 100;
 
-//   thumbLeft.style.left = percent + "%";
-//   range.style.left = percent + "%";
-//   // console.log(_this.value);
+  thumbLeft.style.left = percent + "%";
+  range.style.left = percent + "%";
+  // console.log(_this.value);
 
-//   thumbLeftValue = document.querySelector(".thumbLeftValue");
-//   thumbLeftValue.innerHTML = "$" + _this.value;
-//   minPrice = _this.value;
-// };
-// setLeftValue();
-// const setRightValue = () => {
-//   const _this = inputRight;
-//   min = parseInt(_this.min);
-//   max = parseInt(_this.max);
+  thumbLeftValue = document.querySelector(".thumbLeftValue");
+  thumbLeftValue.innerHTML = "$" + _this.value;
+  minPrice = _this.value;
+};
+setLeftValue();
+const setRightValue = () => {
+  const _this = inputRight;
+  min = parseInt(_this.min);
+  max = parseInt(_this.max);
 
-//   _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value));
-//   let percent = ((_this.value - min) / (max - min)) * 100;
+  _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value));
+  let percent = ((_this.value - min) / (max - min)) * 100;
 
-//   thumbRight.style.right = 100 - percent + "%";
-//   range.style.right = 100 - percent + "%";
-//   // console.log(_this.value);
+  thumbRight.style.right = 100 - percent + "%";
+  range.style.right = 100 - percent + "%";
+  // console.log(_this.value);
 
-//   thumbRightValue = document.querySelector(".thumbRightValue");
-//   thumbRightValue.innerHTML = "$" + _this.value;
-//   maxprice = _this.value;
-// };
-// setRightValue();
+  thumbRightValue = document.querySelector(".thumbRightValue");
+  thumbRightValue.innerHTML = "$" + _this.value;
+  maxPrice = _this.value;
+};
+setRightValue();
 
-// inputLeft.addEventListener("input", setLeftValue);
-// inputRight.addEventListener("input", setRightValue);
+inputLeft.addEventListener("input", setLeftValue);
+inputRight.addEventListener("input", setRightValue);
+
+
+const anchors = [...document.querySelectorAll('.gridItems li a')];
+for (const anchor of anchors){
+  anchor.addEventListener("click" , ()=>{
+    const productName = anchor.querySelector('.productName h3').innerHTML;
+    console.log(productName);
+    for(let i=0;i<PRODUCTS.length;i++){
+      if(PRODUCTS[i].name === productName){
+        productClicked = JSON.stringify(PRODUCTS[i]);
+        sessionStorage.setItem('clickedItem', productClicked);
+      }
+    }
+    window.location.assign('./item.html');
+  })
+}
+  
+ 
+
+
+
+
+
+
+
 
 // //apply filters to product list
 

@@ -4,7 +4,7 @@
   margin: 3rem 0;
 }
 .shopDisplay .filterList {
-  min-width: 30%;
+  min-width: 20%;
 }
 
 
@@ -208,7 +208,7 @@ input[type=range]::-webkit-slider-thumb{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 100%;
+  max-width: 100%;
   min-height: 60vh;
 }     
 
@@ -227,13 +227,15 @@ input[type=range]::-webkit-slider-thumb{
   height: 346px;
 }
 
-.displayGrid .gridItems li .imgWrap{
+.displayGrid .gridItems li .shopImgWrap{
   width: 300px;
-  max-height: 257px;
+  height: 257px;
+  overflow: hidden;
 }
 
-.imgWrap img{
-  min-width: 100%;
+.shopImgWrap img{
+  max-height: 100%;
+  object-position: 10% 10%;
 
 }
 
