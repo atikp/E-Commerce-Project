@@ -12,6 +12,21 @@ let thumbRightValue;
 let minprice;
 let maxprice;
 
+const navMain = document.getElementsByClassName("nav")[0]
+const bars = document.getElementsByClassName('bars')[0]
+const individualBars = document.getElementsByClassName('bar')
+const close = document.getElementsByClassName("close");
+
+
+const openNav = () => {
+  for(let i=0; i<individualBars.length; i++){
+    individualBars[i].classList.toggle("change");
+  };
+  navMain.classList.toggle("open");
+  // console.log(individualBars[0].getAttribute("display"), bars.classList,"open")
+}
+
+bars.addEventListener("click", openNav);
 
 fieldTohide.forEach((field) => {
   field.addEventListener("click", () => {

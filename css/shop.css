@@ -1,3 +1,4 @@
+
 .shopDisplay {
   display: flex;
   min-width: 100%;
@@ -70,14 +71,14 @@
 }
 
 .shopDisplay .filterList fieldset input[type=checkbox]:checked::after{
-  content: url("../img/checkMark.png");
+  content: url();
   position: absolute;
   display: inline;
   width: 16px;
   height: 20px;
   top: 0;
   left: 0;
-  background-color:#00C98D;
+  background-color:#000;
   color: #fff;
   font-weight: 200;
   overflow: hidden;
