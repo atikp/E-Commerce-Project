@@ -258,6 +258,7 @@ footer li a{
   margin:2rem;
 }
                                                 /*Media Queries siteWide*/
+
 @media only screen and (max-width: 960px)  {
   .wrapper{
     margin:0;
@@ -374,26 +375,49 @@ footer li a{
     max-width:90vw;
     padding: 1.5rem;
   }
-  .shopDisplay .filterList .filterHEader{
+  .shopDisplay .filterList .filterHeader{
     display: flex;
     justify-self: center;
+    border: #000 solid 2px;
+    width:70px;
+    border-radius: 5px;
+    padding: .2rem;
 
   }
-  .shopDisplay .filterList form{
+  .shopDisplay .filterList .filterForm{
+    position: absolute;
     display:flex;
     justify-content: center;
     margin-top: 1.5rem;
     /* align-items: center; */
     flex-wrap: wrap;
+    height: 0;
+    overflow: hidden;
+    /* background-color: blue; */
+    /* transition: 0.3s; */
     
   }
+  .shopDisplay .filterList .filterForm.filterOpen{
+    height:100%;
+    position: relative;
+
+  }
+  .shopDisplay .filterList .filterForm .priceRangeSlider {
+    width:83%;
+  }  
   .shopDisplay .filterList form > fieldset {
     width: 170px;
   }
   .shopDisplay .filterList form > fieldset .fieldHeader{
     justify-content: space-around;
   }
-
+  
+  .shopDisplay .displayGrid .gridItems li{
+    margin: 0 auto;
+  }
+ 
+ 
+  
                                     /*  item page  */
   .productWrap{
     /* margin-top: 1em; */
@@ -427,4 +451,12 @@ footer li a{
     height: auto;
   }
 
+}
+@media only screen and (min-width:200px)and (max-width:530px){
+  /* .applyFilters{
+    margin-left:2rem;
+  }         */
+  .shopDisplay .filterList .filterForm .priceRangeSlider {
+    width:70%;
+  }                                     
 }

@@ -1,21 +1,22 @@
-const fieldTohide = document.querySelectorAll(".fieldHeader");
-const filterApplyBtn = document.querySelector(".applyFilters>button");
-let priceRangeInput = [...document.querySelectorAll(".priceRangeSlider input")];
-const inputLeft = document.getElementById("priceRange-min");
-const inputRight = document.getElementById("priceRange-max");
-const thumbLeft = document.querySelector(".slider >.thumb.left");
-const thumbRight = document.querySelector(".slider >.thumb.right");
-const range = document.querySelector(".slider> .range");
-
-let thumbLeftValue;
-let thumbRightValue;
-let minprice;
-let maxprice;
-
 const navMain = document.getElementsByClassName("nav")[0]
 const bars = document.getElementsByClassName('bars')[0]
 const individualBars = document.getElementsByClassName('bar')
 const close = document.getElementsByClassName("close");
+// PRODUCTS is being imported in shop.html from products.js
+const filterBtn = document.getElementById('filterHeader');
+const form = document.getElementsByClassName('filterForm')[0];
+const fieldTohide = document.querySelectorAll(".fieldHeader");
+const filterApplyBtn = document.querySelector(".applyFilters>button");
+let priceRangeInput = [...document.querySelectorAll(".priceRangeSlider input")];
+const range = document.querySelector(".slider> .range");
+const inputLeft = document.getElementById("priceRange-min");
+const inputRight = document.getElementById("priceRange-max");
+const thumbLeft = document.querySelector(".slider >.thumb.left");
+const thumbRight = document.querySelector(".slider >.thumb.right");
+let thumbLeftValue;
+let thumbRightValue;
+let minprice;
+let maxprice;
 
 
 const openNav = () => {
@@ -25,18 +26,40 @@ const openNav = () => {
   navMain.classList.toggle("open");
   // console.log(individualBars[0].getAttribute("display"), bars.classList,"open")
 }
-
 bars.addEventListener("click", openNav);
 
+window.onload = () =>{
+  fieldTohide.forEach((field) => {
+    // field.classList.add("hidden")
+  
+      const collapsible = field.querySelector(".collapsible");
+      collapsible.classList.toggle("open");
+      const inputs = [...document.querySelectorAll("fieldset input")];
+      inputs.forEach((input) => {
+        //  input.parentElement.classList.add("hidden");
+        if (input.parentElement.parentElement.classList.value === field.id) {
+          // console.log(input);
+          // console.log("thisField")
+          input.parentElement.classList.add("hidden");
+          input.classList.add("hidden");
+        }
+      });
+   
+  });
+}
+
 fieldTohide.forEach((field) => {
+  // field.classList.add("hidden")
+
   field.addEventListener("click", () => {
     const collapsible = field.querySelector(".collapsible");
     collapsible.classList.toggle("open");
     const inputs = [...document.querySelectorAll("fieldset input")];
     inputs.forEach((input) => {
+      //  input.parentElement.classList.add("hidden");
       if (input.parentElement.parentElement.classList.value === field.id) {
-        // console.log(input.parentElement.parentElement.classList);
-
+        console.log(input);
+        // console.log("thisField")
         input.parentElement.classList.toggle("hidden");
         input.classList.toggle("hidden");
       }
@@ -46,6 +69,9 @@ fieldTohide.forEach((field) => {
 
 
 // set filters
+  filterBtn.addEventListener("click",()=>{
+    form.classList.toggle("filterOpen")
+  })
 
 
 const setAllFilters = () => {
